@@ -27,6 +27,7 @@ library
   exposed-modules:
       Challenge00
       Challenge01
+      Challenge02
   other-modules:
       Paths_AOC2024
   autogen-modules:
@@ -59,6 +60,7 @@ test-suite AOC2024-test
   main-is: Spec.hs
   other-modules:
       Challenge01Spec
+      Challenge02Spec
       Paths_AOC2024
   autogen-modules:
       Paths_AOC2024

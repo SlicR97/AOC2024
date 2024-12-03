@@ -1,4 +1,4 @@
-module Challenge01Spec where
+module Challenge01Spec(spec) where
 
 import Test.Hspec
 import Challenge01(solve)
