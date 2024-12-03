@@ -21,7 +21,6 @@ description:         Please see the README on GitHub at <https://github.com/gith
 
 dependencies:
 - base >= 4.7 && < 5
-- containers
 
 ghc-options:
 - -Wall
@@ -36,6 +35,8 @@ ghc-options:
 
 library:
   source-dirs: src
+  dependencies:
+  - regex-tdfa
 
 executables:
   AOC2024-exe:
@@ -47,6 +48,7 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - AOC2024
+    - containers
 
 tests:
   AOC2024-test:
@@ -58,3 +60,7 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - AOC2024
+    - hspec
+    - hspec-contrib
+    - QuickCheck
+    - HUnit

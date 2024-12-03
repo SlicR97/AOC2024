@@ -6,10 +6,12 @@ import qualified Data.Map as Map(Map, fromList, lookup, toList)
 import qualified System.Environment as S(getArgs)
 
 import qualified Challenge00 as C00(solve)
+import qualified Challenge01 as C01(solve)
 
 solvers :: Map.Map String (String -> String)
 solvers = Map.fromList
     [ ("00", C00.solve)
+    , ("01", C01.solve)
     ]
 
 parseArgs :: [String] -> Maybe String
