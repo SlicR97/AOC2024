@@ -1,4 +1,4 @@
-module Challenge02(solve) where
+module Challenge02(solvePart1, solvePart2) where
 
 parseLine :: String -> [Int]
 parseLine = map read . words
@@ -26,5 +26,8 @@ checkLine is = valuesInRange && (valuesAreIncreasing || valuesAreDecreasing)
           valuesAreIncreasing = allAscending is
           valuesAreDecreasing = allDescending is
 
-solve :: String -> String
-solve = show . length . filter id . map (checkLine . parseLine) . lines
+solvePart1 :: String -> String
+solvePart1 = show . length . filter id . map (checkLine . parseLine) . lines
+
+solvePart2 :: String -> String
+solvePart2 = id

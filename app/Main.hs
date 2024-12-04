@@ -5,15 +5,15 @@ import qualified Data.Functor as F((<&>))
 import qualified Data.Map as Map(Map, fromList, lookup, toList)
 import qualified System.Environment as S(getArgs)
 
-import qualified Challenge00 as C00(solve)
-import qualified Challenge01 as C01(solve)
-import qualified Challenge02 as C02(solve)
+import qualified Challenge00 as C00(solvePart1, solvePart2)
+import qualified Challenge01 as C01(solvePart1, solvePart2)
+import qualified Challenge02 as C02(solvePart1, solvePart2)
 
-solvers :: Map.Map String (String -> String)
+solvers :: Map.Map String (String -> String, String -> String)
 solvers = Map.fromList
-    [ ("00", C00.solve)
-    , ("01", C01.solve)
-    , ("02", C02.solve)
+    [ ("00", (C00.solvePart1, C00.solvePart2))
+    , ("01", (C01.solvePart1, C01.solvePart2))
+    , ("02", (C02.solvePart1, C01.solvePart2))
     ]
 
 parseArgs :: [String] -> Maybe String
@@ -31,14 +31,17 @@ solveChallenge cn = do
     let ms = Map.lookup cn solvers
     case ms of
         Nothing -> return ()
-        Just s -> putStrLn $ s input
+        Just (s1, s2) -> do
+            putStrLn $ s1 input
+            putStrLn $ s2 input
 
 solveAllChallenges :: () -> IO ()
 solveAllChallenges () = do
     DF.mapM_ solveSingleChallenge $ Map.toList solvers
-    where solveSingleChallenge (cn, solver) = do
+    where solveSingleChallenge (cn, (s1, s2)) = do
             input <- readInput cn
-            putStrLn $ solver input
+            putStrLn $ s1 input
+            putStrLn $ s2 input
 
 main :: IO ()
 main = do

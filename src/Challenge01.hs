@@ -1,4 +1,4 @@
-module Challenge01(solve) where
+module Challenge01(solvePart1, solvePart2) where
 
 import Text.Regex.TDFA
 import qualified Data.List as DL(sort)
@@ -22,5 +22,15 @@ toListOfPairs (a:as, b:bs) = (a, b):rest
 absSum :: (Int, Int) -> Int
 absSum (a, b) = abs $ a - b
 
-solve :: String -> String
-solve = show . sum . map absSum . toListOfPairs . BF.bimap DL.sort DL.sort . toPairOfLists . map parseLine . lines
+buildSimilarityScore :: ([Int], [Int]) -> Int
+buildSimilarityScore (a, b) = foldr folder 0 a
+  where folder e agg =
+          let count = (length . filter (== e)) b
+              score = e * count
+              in agg + score
+
+solvePart1 :: String -> String
+solvePart1 = show . sum . map absSum . toListOfPairs . BF.bimap DL.sort DL.sort . toPairOfLists . map parseLine . lines
+
+solvePart2 :: String -> String
+solvePart2 = show . buildSimilarityScore . toPairOfLists . map parseLine . lines
