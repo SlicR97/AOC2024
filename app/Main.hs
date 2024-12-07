@@ -13,7 +13,7 @@ solvers :: Map.Map String (String -> String, String -> String)
 solvers = Map.fromList
     [ ("00", (C00.solvePart1, C00.solvePart2))
     , ("01", (C01.solvePart1, C01.solvePart2))
-    , ("02", (C02.solvePart1, C01.solvePart2))
+    , ("02", (C02.solvePart1, C02.solvePart2))
     ]
 
 parseArgs :: [String] -> Maybe String

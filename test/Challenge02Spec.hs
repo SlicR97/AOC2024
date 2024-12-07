@@ -1,11 +1,11 @@
 module Challenge02Spec(spec) where
 
 import Test.Hspec
-import Challenge02(solvePart1)
+import Challenge02(solvePart1, solvePart2)
 
 spec :: Spec
 spec = do
-    describe "Challenge02" $ do
+    describe "solvePart1" $ do
         it "determines a line as unsafe if it consists of 2 values and the second value increases by more than 3" $ do
             solvePart1 "10 15" `shouldBe` "0"
 
@@ -58,3 +58,14 @@ spec = do
                     \3 2 4"
             
             solvePart1 l `shouldBe` "5"
+
+    describe "solvePart2" $ do
+        it "returns success for a line if it would be valid when one element is removed" $ do
+            let l = "7 6 4 2 1\n\
+                    \1 2 7 8 9\n\
+                    \9 7 6 2 1\n\
+                    \1 3 2 4 5\n\
+                    \8 6 4 4 1\n\
+                    \1 3 6 7 9"
+            
+            solvePart2 l `shouldBe` "4"

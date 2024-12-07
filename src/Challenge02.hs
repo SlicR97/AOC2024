@@ -20,14 +20,23 @@ allDescending [] = True
 allDescending [_] = True
 allDescending (a:b:xs) = a >= b && allDescending (b:xs)
 
+dropElement :: Int -> [a] -> [a]
+dropElement _ [] = []
+dropElement i (a:as)
+    | i == 0 = as
+    | otherwise = a : dropElement (i - 1) as
+
 checkLine :: [Int] -> Bool
 checkLine is = valuesInRange && (valuesAreIncreasing || valuesAreDecreasing)
     where valuesInRange = compareValues is
           valuesAreIncreasing = allAscending is
           valuesAreDecreasing = allDescending is
 
+checkLine2 :: [Int] -> Bool
+checkLine2 ls = any checkLine ([ dropElement x ls | x <- [0..(length ls - 1)] ])
+
 solvePart1 :: String -> String
 solvePart1 = show . length . filter id . map (checkLine . parseLine) . lines
 
 solvePart2 :: String -> String
-solvePart2 = id
+solvePart2 = show . length . filter id . map (checkLine2 . parseLine) . lines
