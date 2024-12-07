@@ -31,9 +31,9 @@ interpretInput2 = doInterpretInput 0 True
         doInterpretInput x False ((MulStmt _ _):r) = doInterpretInput x False r
         doInterpretInput x _ [] = x
 
-solvePart1 :: String -> String
-solvePart1 = show . sum . map mul . parseInput1
+solvePart1 :: String -> Int
+solvePart1 = sum . map mul . parseInput1
   where mul (a, b) = a * b
 
-solvePart2 :: String -> String
-solvePart2 = show . interpretInput2 . parseInput2
+solvePart2 :: String -> Int
+solvePart2 = interpretInput2 . parseInput2

@@ -1,7 +1,7 @@
 module Challenge00(solvePart1, solvePart2) where
 
-solvePart1 :: String -> String
-solvePart1 input = input ++ " output 1"
+solvePart1 :: String -> Int
+solvePart1 _ = 1
 
-solvePart2 :: String -> String
-solvePart2 input = input ++ "output 2"
+solvePart2 :: String -> Int
+solvePart2 _ = 2

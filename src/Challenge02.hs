@@ -35,8 +35,8 @@ checkLine is = valuesInRange && (valuesAreIncreasing || valuesAreDecreasing)
 checkLine2 :: [Int] -> Bool
 checkLine2 ls = any checkLine ([ dropElement x ls | x <- [0..(length ls - 1)] ])
 
-solvePart1 :: String -> String
-solvePart1 = show . length . filter id . map (checkLine . parseLine) . lines
+solvePart1 :: String -> Int
+solvePart1 = length . filter id . map (checkLine . parseLine) . lines
 
-solvePart2 :: String -> String
-solvePart2 = show . length . filter id . map (checkLine2 . parseLine) . lines
+solvePart2 :: String -> Int
+solvePart2 = length . filter id . map (checkLine2 . parseLine) . lines

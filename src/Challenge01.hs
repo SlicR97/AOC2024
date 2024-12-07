@@ -31,8 +31,8 @@ buildSimilarityScore (a, b) = foldr folder 0 a
               score = e * count
               in agg + score
 
-solvePart1 :: String -> String
-solvePart1 = show . sum . map absSum . toListOfPairs . BF.bimap DL.sort DL.sort . toPairOfLists . map parseLine . lines
+solvePart1 :: String -> Int
+solvePart1 = sum . map absSum . toListOfPairs . BF.bimap DL.sort DL.sort . toPairOfLists . map parseLine . lines
 
-solvePart2 :: String -> String
-solvePart2 = show . buildSimilarityScore . toPairOfLists . map parseLine . lines
+solvePart2 :: String -> Int
+solvePart2 = buildSimilarityScore . toPairOfLists . map parseLine . lines

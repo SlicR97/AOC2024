@@ -10,7 +10,7 @@ import qualified Challenge01 as C01(solvePart1, solvePart2)
 import qualified Challenge02 as C02(solvePart1, solvePart2)
 import qualified Challenge03 as C03(solvePart1, solvePart2)
 
-solvers :: Map.Map String (String -> String, String -> String)
+solvers :: Map.Map String (String -> Int, String -> Int)
 solvers = Map.fromList
   [ ("00", (C00.solvePart1, C00.solvePart2))
   , ("01", (C01.solvePart1, C01.solvePart2))
@@ -34,16 +34,16 @@ solveChallenge cn = do
   case ms of
     Nothing -> return ()
     Just (s1, s2) -> do
-      putStrLn $ s1 input
-      putStrLn $ s2 input
+      print $ s1 input
+      print $ s2 input
 
 solveAllChallenges :: () -> IO ()
 solveAllChallenges () = do
   DF.mapM_ solveSingleChallenge $ Map.toList solvers
   where solveSingleChallenge (cn, (s1, s2)) = do
           input <- readInput cn
-          putStrLn $ s1 input
-          putStrLn $ s2 input
+          print $ s1 input
+          print $ s2 input
 
 main :: IO ()
 main = do
