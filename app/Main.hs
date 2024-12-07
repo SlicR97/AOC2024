@@ -8,12 +8,14 @@ import qualified System.Environment as S(getArgs)
 import qualified Challenge00 as C00(solvePart1, solvePart2)
 import qualified Challenge01 as C01(solvePart1, solvePart2)
 import qualified Challenge02 as C02(solvePart1, solvePart2)
+import qualified Challenge03 as C03(solvePart1, solvePart2)
 
 solvers :: Map.Map String (String -> String, String -> String)
 solvers = Map.fromList
   [ ("00", (C00.solvePart1, C00.solvePart2))
   , ("01", (C01.solvePart1, C01.solvePart2))
   , ("02", (C02.solvePart1, C02.solvePart2))
+  , ("03", (C03.solvePart1, C03.solvePart2))
   ]
 
 parseArgs :: [String] -> Maybe String

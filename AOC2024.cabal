@@ -28,6 +28,7 @@ library
       Challenge00
       Challenge01
       Challenge02
+      Challenge03
   other-modules:
       Paths_AOC2024
   autogen-modules:
@@ -61,6 +62,7 @@ test-suite AOC2024-test
   other-modules:
       Challenge01Spec
       Challenge02Spec
+      Challenge03Spec
       Paths_AOC2024
   autogen-modules:
       Paths_AOC2024
