@@ -5,8 +5,8 @@ parseLine = map read . words
 
 compareValues :: [Int] -> Bool
 compareValues (a:b:xs) =
-    let distance = abs (a - b)
-    in distance > 0 && distance < 4 && compareValues (b:xs)
+  let distance = abs (a - b)
+  in distance > 0 && distance < 4 && compareValues (b:xs)
 compareValues [_] = True
 compareValues [] = True
 
@@ -23,14 +23,14 @@ allDescending (a:b:xs) = a >= b && allDescending (b:xs)
 dropElement :: Int -> [a] -> [a]
 dropElement _ [] = []
 dropElement i (a:as)
-    | i == 0 = as
-    | otherwise = a : dropElement (i - 1) as
+  | i == 0 = as
+  | otherwise = a : dropElement (i - 1) as
 
 checkLine :: [Int] -> Bool
 checkLine is = valuesInRange && (valuesAreIncreasing || valuesAreDecreasing)
-    where valuesInRange = compareValues is
-          valuesAreIncreasing = allAscending is
-          valuesAreDecreasing = allDescending is
+  where valuesInRange = compareValues is
+        valuesAreIncreasing = allAscending is
+        valuesAreDecreasing = allDescending is
 
 checkLine2 :: [Int] -> Bool
 checkLine2 ls = any checkLine ([ dropElement x ls | x <- [0..(length ls - 1)] ])

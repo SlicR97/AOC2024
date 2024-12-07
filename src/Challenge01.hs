@@ -16,6 +16,8 @@ toPairOfLists ((a, b):xs) = (a:as, b:bs)
 
 toListOfPairs :: ([a], [b]) -> [(a, b)]
 toListOfPairs ([], []) = []
+toListOfPairs (_:_, []) = []
+toListOfPairs ([], _:_) = []
 toListOfPairs (a:as, b:bs) = (a, b):rest
   where rest = toListOfPairs (as, bs)
 
